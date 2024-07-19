@@ -1,0 +1,26 @@
+﻿<Window x:Class="AccessSharingClient.ServerConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccessSharingClient"
+        mc:Ignorable="d"
+        Title="ServerConnectionWindow" Height="260" Width="280"
+        ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="loginTextBox" HorizontalAlignment="Left" Margin="128,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Margin="128,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Margin="128,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="rememberCheckBox" Content="Запомнить" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.566" Checked="rememberCheckBox_Checked" Unchecked="rememberCheckBox_Unchecked"/>
+        <PasswordBox x:Name="userPasswordBox" HorizontalAlignment="Left" Margin="128,45,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="serverPasswordBox" HorizontalAlignment="Left" Margin="128,138,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="loginLabel" Content="Логин" Margin="10,10,147,0" VerticalAlignment="Top" Width="113" HorizontalAlignment="Left"/>
+        <Label x:Name="userPasswordLabel" Content="Пароль" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label x:Name="ipLabel" Content="IP Адрес сервера" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label x:Name="portLabel" Content="Порт сервера" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label x:Name="serverPasswordLabel" Content="Пароль сервера" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button x:Name="connectButton" Content="Подключение" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="100" Click="connectButton_Click"/>
+        <Button x:Name="cancelButton" Content="Отмена" HorizontalAlignment="Left" Margin="148,185,0,0" VerticalAlignment="Top" Width="100" Click="cancelButton_Click"/>
+
+    </Grid>
+</Window>

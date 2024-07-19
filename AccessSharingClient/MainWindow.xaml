@@ -1,0 +1,52 @@
+﻿<Window x:Class="AccessSharingClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccessSharingClient"
+        mc:Ignorable="d"
+        Title="AccessSharing" Height="720" Width="1280" ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="connectButton" Content="Подключиться
+                " Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="10,0,0,0" Click="connectButton_Click"/>
+        <TabControl x:Name="mainTabControl" TabStripPlacement="Left" Width="1280" Height="674" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TabItem x:Name="documentsTab" Header="Документы" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,-2,0,0" Width="88">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="documentsDataGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,20,0,0" SelectionChanged="documentsDataGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя Файла" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Уровень Доступа" Binding="{Binding Path=AccessLevel}"/>
+                            <DataGridTextColumn Header="Тип" Binding="{Binding Path=DataTag}"/>
+                            <DataGridTextColumn Header="Время Загрузки" Binding="{Binding Path=UploadTime}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="downloadButton" Content="Сохранить" HorizontalAlignment="Left" Margin="57,0,0,0" VerticalAlignment="Top" Click="downloadButton_Click"/>
+                    <Button x:Name="uploadButton" Content="Загрузить" HorizontalAlignment="Left" VerticalAlignment="Top" Click="uploadButton_Click"/>
+                    <Button x:Name="deleteFileButton" Content="Удалить" HorizontalAlignment="Left" Margin="119,0,0,0" VerticalAlignment="Top" Click="deleteFileButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="usersTab" Header="Пользователи" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,-2,0,0" Width="90">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="usersListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,981,10" SelectionChanged="usersListBox_SelectionChanged"/>
+                    <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="322,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="usernameLabel" Content="Имя пользователя" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" Width="111"/>
+                    <Label x:Name="rolesLabel" Content="Роли" HorizontalAlignment="Left" Margin="206,41,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="currentRolesListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="206,97,865,10" SelectionChanged="currentRolesListBox_SelectionChanged"/>
+                    <Button x:Name="removeUserRoleButton" Content="Удалить Роль" HorizontalAlignment="Left" Margin="206,72,0,0" VerticalAlignment="Top" Width="111" Click="removeUserRoleButton_Click"/>
+                    <Button x:Name="addUserRoleButton" Content="Добавить Роль" HorizontalAlignment="Left" Margin="322,72,0,0" VerticalAlignment="Top" Width="111" Click="addUserRoleButton_Click"/>
+                    <ListBox x:Name="possibleRolesListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="322,97,749,10" SelectionChanged="possibleRolesListBox_SelectionChanged"/>
+                    <Button x:Name="applyUsernameButton" Content="Применить" HorizontalAlignment="Left" Margin="447,13,0,0" VerticalAlignment="Top" Click="applyUsernameButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="rolesTab" Header="Роли" Margin="2,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="rolesListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,981,0"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button x:Name="disconnectButton" Content="Отключиться" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="110,0,0,0" Click="disconnectButton_Click"/>
+        <Button x:Name="refreshButton" Content="Обновить" HorizontalAlignment="Left" Margin="210,0,0,0" VerticalAlignment="Top" Click="refreshButton_Click"/>
+
+    </Grid>
+</Window>
